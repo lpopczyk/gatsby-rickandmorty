@@ -1,9 +1,8 @@
-//lis la configuration depuis .env
-require("dotenv").config()
+require("dotenv").config() //lis la configuration depuis .env
 
 module.exports = {
     siteMetadata: {
-        title: `gatsby-project`,
+        title: `gatsby_api`,
     siteUrl: `https://www.yourdomain.tld`,
   },
     plugins: [

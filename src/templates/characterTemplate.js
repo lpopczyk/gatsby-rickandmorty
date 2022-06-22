@@ -1,32 +1,61 @@
 import React from "react"
 import Layout from "../components/Layout"
+import {
+    container,
+    imageid,
+    charname,
+    info,
+    charninfotitre,
+    charninfo,
+
+} from './characterTemplate.module.css'
 
 const CharacterTemplate = ({ pageContext }) => {
     const character = pageContext.character
     return (
         <Layout>
-            <div>
-                <img src={character.image} alt="" />
-                <h1>{character.name}</h1>
-                <div>
-                    <div>Gender</div>
-                    <div>{character.gender}</div>
+            <div className={container}>
+                <img className={imageid} src={character.image} alt="" />
+                <h1 className={charname}>{character.name}</h1>
+                <div className={info}>
+                    <div className={charninfotitre}>
+                        Gender
+                    </div>
+                    <div className={charninfo}>
+                        {character.gender}
+                    </div>
                 </div>
-                <div>
-                    <div>Species</div>
-                    <div>{character.species}</div>
+                <div className={info}>
+                    <div className={charninfotitre}>
+                        Species
+                    </div>
+                    <div className={charninfo}>
+                        {character.species}
+                    </div>
                 </div>
-                <div>
-                    <div>Status</div>
-                    <div>{character.status}</div>
+                <div className={info}>
+                    <div className={charninfotitre}>
+                        Status
+                    </div>
+                    <div className={charninfo}>
+                        {character.status}
+                    </div>
                 </div>
-                <div>
-                    <div>Origin</div>
-                    <div>{character.origin.name}</div>
+                <div className={info}>
+                    <div className={charninfotitre}>
+                        Origin
+                    </div>
+                    <div className={charninfo}>
+                        {character.origin.name}
+                    </div>
                 </div>
-                <div>
-                    <div>location</div>
-                    <div>{character.location.name}</div>
+                <div className={info}>
+                    <div className={charninfotitre}>
+                        location
+                    </div>
+                    <div className={charninfo}>
+                        {character.location.name}
+                    </div>
                 </div>
             </div>
         </Layout>

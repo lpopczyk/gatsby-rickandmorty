@@ -2,6 +2,8 @@ import Layout from "../components/Layout"
 import React, { useState, useEffect } from "react"
 import { Link, graphql } from "gatsby"
 import Characters from "../components/character"
+import Search from ".././components/search"
+const searchIndices = [{ name: `Pages`, title: `Pages` }]
 
 const PageTemplate = ({ data, pageContext }) => {
 
@@ -25,50 +27,6 @@ const PageTemplate = ({ data, pageContext }) => {
             return
         }
         setLoading(true)
-
-        /*const variables = {
-            name: searchText,
-            page: currentPage,
-        }*/
-
-        /*const query = graphql`
-      query myQuery($name: String!, $page: Int!) {
-        ram {
-            characters(filter: { name: $name }, page: $page) {
-                info {
-                  pages
-                  prev
-                }
-                results {
-                  name
-                  gender
-                  id
-                  image
-                  location {
-                    name
-                  }
-                  origin {
-                    name
-                  }
-                  species
-                  status
-                }
-              }
-        }
-      }
-    `*/
-        /*request("https://rickandmortyapi.com/graphql", query, variables)
-            .then(data => {
-                console.log(data.characters.info.prev)
-                setCharacters(data.characters.results)
-                setTotalpage(data.characters.info.pages)
-                setLoading(false)
-            })
-            .catch(error => {
-                console.log(error)
-                setCharacters([])
-                setLoading(false)
-            }) */
     }
 
     useEffect(() => {
@@ -79,6 +37,8 @@ const PageTemplate = ({ data, pageContext }) => {
         //print card character, create pagination
         <Layout>
             <div>
+                <Search indices={searchIndices} />
+
                 <Characters characters={characters} />
 
                 {loading ? (

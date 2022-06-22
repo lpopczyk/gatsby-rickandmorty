@@ -15,14 +15,19 @@
     "clean": "gatsby clean"
   },
   "dependencies": {
+    "@styled-icons/fa-solid": "^10.34.0",
+    "algoliasearch": "^4.13.1",
     "gatsby": "^4.16.0",
     "gatsby-plugin-algolia": "^0.26.0",
     "gatsby-plugin-image": "^2.17.0",
     "gatsby-plugin-sharp": "^4.17.0",
+    "gatsby-plugin-styled-components": "^5.17.0",
     "gatsby-source-filesystem": "^4.17.0",
     "gatsby-source-graphql": "^4.17.0",
     "gatsby-transformer-sharp": "^4.17.0",
     "react": "^18.1.0",
-    "react-dom": "^18.1.0"
+    "react-dom": "^18.1.0",
+    "react-instantsearch-dom": "^6.29.0",
+    "styled-components": "^5.3.5"
   }
 }

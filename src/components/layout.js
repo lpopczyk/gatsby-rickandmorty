@@ -1,11 +1,18 @@
 import React from "react"
-import Navbar from "./navbar"
+import { Link } from 'gatsby'
+import {
+  } from './layout.module.css'
 
 const Layout = ({ children }) => {
     return (
         <>
-            <Navbar />
-            {children}
+        <nav className="navbar">
+            <Link to="/">home</Link>
+            <Link to="/about">about</Link>
+        </nav>
+            <main>
+                {children}
+            </main>
         </>
     )
 }

@@ -1,19 +1,20 @@
-const escapeStringRegexp = require("escape-string-regexp")
 const pagePath = `templates/pageTemplate`
 const indexName = `Pages`
 const datapageQuery = `{
   pages: allSitePage {
       edges {
         node {
+          id
           pageContext
         }
       }
     }
   }`
 
-function pageToAlgoliaRecord({ node: { pageContext } }) {
+function pageToAlgoliaRecord({ node: { id, pageContext } }) {
   return {
-    objectID: pageContext,
+    objectID: id, 
+    pageContext,
   }
 }
 
