@@ -9,6 +9,7 @@ const Layout = ({ children }) => {
         <nav className="navbar">
             <Link to="/">home</Link>
             <Link to="/about">about</Link>
+            <Link to="/searchCharacter">about</Link>
         </nav>
             <main>
                 {children}

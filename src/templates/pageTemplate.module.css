@@ -1,0 +1,22 @@
+.imageid{
+    max-width: 50%;
+    border-radius: 200px;
+}
+
+.containercharacter {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    max-width: 500px;
+    font-family: sans-serif;
+    text-align: center;
+}
+
+.searchbar{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 25px;
+    width: 300px;
+}

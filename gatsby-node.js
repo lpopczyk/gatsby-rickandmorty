@@ -5,6 +5,7 @@ exports.createPages = async ({ graphql, actions }) => {
     const pageTemplate = path.resolve(`src/templates/pageTemplate.js`)
     const characterTemplate = path.resolve(`src/templates/characterTemplate.js`)
 
+    //info des characters à ajt dans card
     const data = await graphql(`
     query MyQuery {
       ram {
@@ -43,6 +44,7 @@ exports.createPages = async ({ graphql, actions }) => {
                 totalPages,
             },
         })
+        //character en fonction de la page
         const characterdata = await graphql(`
       query MyQuery {
         ram {

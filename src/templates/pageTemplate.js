@@ -2,11 +2,11 @@ import Layout from "../components/Layout"
 import React, { useState, useEffect } from "react"
 import { Link, graphql } from "gatsby"
 import Characters from "../components/character"
-import Search from ".././components/search"
-const searchIndices = [{ name: `Pages`, title: `Pages` }]
+import {
+    containercharacter
+} from './pageTemplate.module.css'
 
 const PageTemplate = ({ data, pageContext }) => {
-
 
     const [characters] = useState(
         data.ram.characters.results
@@ -15,7 +15,7 @@ const PageTemplate = ({ data, pageContext }) => {
         data.ram.characters.info.pages
     )
 
-    const [searchText] = useState("")
+    const [searchText, setsearchText] = useState('')
 
     const [currentPage, setCurrentPage] = useState(pageContext.page)
     const [loading, setLoading] = useState(false)
@@ -37,10 +37,14 @@ const PageTemplate = ({ data, pageContext }) => {
         //print card character, create pagination
         <Layout>
             <div>
-                <Search indices={searchIndices} />
+                <div>
+                    
+                </div>
 
-                <Characters characters={characters} />
-
+                <div className={containercharacter}> 
+                    <Characters characters={characters} />
+                </div>
+               
                 {loading ? (
                     ""
                 ) : characters.length > 0 ? (

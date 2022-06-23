@@ -1,5 +1,6 @@
 import React from "react"
 import Layout from "../components/Layout"
+import { Link } from "gatsby"
 import {
     container,
     imageid,
@@ -14,6 +15,7 @@ const CharacterTemplate = ({ pageContext }) => {
     const character = pageContext.character
     return (
         <Layout>
+            <Link to="/page/1">Back</Link>
             <div className={container}>
                 <img className={imageid} src={character.image} alt="" />
                 <h1 className={charname}>{character.name}</h1>
