@@ -1,31 +1,41 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
-export default ({
-    data: {
-        allSitePage: { node },
-    },
-}) => {
-    const char = node;
+const searchChar = ({ data }) => {
 
-    return (
-        <div>
-            <h1>Blog</h1>
-            {char.map(post =>
-                // PostLink will be a component that renders a summary of your post
-                // e.g. the title, date and an excerpt
+    const [characters] = useState(
+        data.ram.characters.results
+    )
+
+    const query = graphql`
+    $name: String!, $page: Int!) {
+        characters(filter: { name: $name }, page: $page) {
+          info {
+            pages
+            prev
+          }
+          results {
+            name
+            gender
+            id
+            image
+            location {
+              name
             }
-        </div>
-    );
-};
-
-export const pageQuery = graphql`
-  query {
-    allSitePage {
-        edges {
-          node {
-            pageContext
+            origin {
+              name
+            }
+            species
+            status
           }
         }
       }
-    }
-`
+    `
+    return (
+        <>
+        </>
+    )
+}
+
+export default searchChar
+
+
