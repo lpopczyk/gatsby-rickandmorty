@@ -6,6 +6,8 @@ import {
     searchContainer,
     searchBar,
     card,
+    resultcontainer,
+    infochar,
 } from '../scss/searchCharacter.module.scss'
 
 const CharacterIndex = props => {
@@ -54,15 +56,26 @@ const CharacterIndex = props => {
                 />
             </div>
            
-            <div>
+            <div className={resultcontainer}>
             {characters.map(({id, image, name, gender, species}) => {
                return <span key={id}>
                     <div className={card}>
                         <img src={image} alt={name}></img>
                         <div>{name}</div>
-                        <div>Gender : {gender}</div>
-                        <div>Species : {species}</div>
-                        <div>Origin : {name}</div>
+                        <table className={infochar}>
+                            <tr>
+                                <td>Gender</td>
+                                <td>{gender}</td>
+                            </tr>
+                            <tr>
+                                <td>Species</td>
+                                <td>{gender}</td>
+                            </tr>
+                            <tr>
+                                <td>Origin :</td>
+                                <td>{name}</td>
+                            </tr>
+                        </table>
                     </div>
                 </span>   
             })}
