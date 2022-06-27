@@ -33,31 +33,7 @@ const PageTemplate = ({ data, pageContext }) => {
         updateCharacters()
     }, [currentPage])
 
-    const query = graphql`
-    query myQuery($name: String!, $page: Int!) {
-        ram {
-                characters(filter: { name: $name }, page: $page) {
-                    info {
-                        pages
-                        prev
-                    }
-                    results {
-                        name
-                        gender
-                        id
-                        image
-                        location {
-                        name
-                        }
-                        origin {
-                        name
-                        }
-                        species
-                        status
-                    }
-                }
-            }
-        }`
+
 
     return (
         //print card character, create pagination
