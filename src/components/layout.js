@@ -1,16 +1,36 @@
 import React from "react"
 import { Link } from 'gatsby'
 import {
-  } from './layout.module.css'
+    navbar,
+    navbarelement,
+} from '../scss/layout.scss'
 
 const Layout = ({ children }) => {
     return (
         <>
-        <nav className="navbar">
-            <Link to="/">home</Link>
-            <Link to="/about">about</Link>
-            <Link to="/searchCharacter">about</Link>
+        <nav className={navbar}>
+            <Link 
+                className={navbarelement}
+                to="/">
+                    Home
+            </Link>
+            <Link 
+                className={navbarelement}
+                to="/about">
+                    About
+            </Link>
+            <Link 
+            className={navbarelement}
+            to="/page/1">
+                Character list
+            </Link>
+            <Link 
+            className={navbarelement}
+            to="/searchCharacter">
+                Search a character
+            </Link>
         </nav>
+
             <main>
                 {children}
             </main>

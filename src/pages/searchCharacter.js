@@ -1,6 +1,12 @@
 import React, { useState } from "react"
-import { useStaticQuery, graphql } from "gatsby"
+import { graphql } from "gatsby"
 import Layout from "../components/Layout"
+import {
+    tilte,
+    searchContainer,
+    searchBar,
+    card,
+} from '../scss/searchCharacter.module.scss'
 
 const CharacterIndex = props => {
     const { data } = props
@@ -38,22 +44,29 @@ const CharacterIndex = props => {
 
     return (
         <Layout>
-            <h1 style={{ textAlign: `center` }}>Writing</h1>
-
-            <div className="searchBox">
+            <h1 classname={tilte}>Search a character</h1>
+            <div className={searchContainer}>
                 <input
-                    className="searchInput"
+                    className={searchBar}
                     type="text"
                     placeholder="Search"
                     onChange={handleInputChange}
                 />
             </div>
-            {characters.map(({id, image, name}) => {
+           
+            <div>
+            {characters.map(({id, image, name, gender, species}) => {
                return <span key={id}>
-                    <div><img src={image} alt={name}></img></div>
-                    <div>{name}</div>
-                </span>
+                    <div className={card}>
+                        <img src={image} alt={name}></img>
+                        <div>{name}</div>
+                        <div>Gender : {gender}</div>
+                        <div>Species : {species}</div>
+                        <div>Origin : {name}</div>
+                    </div>
+                </span>   
             })}
+            </div>   
         </Layout>
     )
 }
@@ -69,6 +82,7 @@ export const pageQuery = graphql`
               gender
               id
               image
+              species
             }
           }
         }

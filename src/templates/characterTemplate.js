@@ -2,6 +2,7 @@ import React from "react"
 import Layout from "../components/Layout"
 import { Link } from "gatsby"
 import {
+    btnback,
     container,
     imageid,
     charname,
@@ -9,56 +10,61 @@ import {
     charninfotitre,
     charninfo,
 
-} from './characterTemplate.module.css'
+} from '../scss/characterTemplate.module.scss'
 
 const CharacterTemplate = ({ pageContext }) => {
     const character = pageContext.character
     return (
         <Layout>
-            <Link to="/page/1">Back</Link>
+            <Link 
+                className={btnback}
+                to="/page/1">Back
+            </Link>
             <div className={container}>
                 <img className={imageid} src={character.image} alt="" />
                 <h1 className={charname}>{character.name}</h1>
-                <div className={info}>
-                    <div className={charninfotitre}>
-                        Gender
-                    </div>
-                    <div className={charninfo}>
-                        {character.gender}
-                    </div>
-                </div>
-                <div className={info}>
-                    <div className={charninfotitre}>
-                        Species
-                    </div>
-                    <div className={charninfo}>
-                        {character.species}
-                    </div>
-                </div>
-                <div className={info}>
-                    <div className={charninfotitre}>
+                <table className={info}>
+                    <tr>
+                        <td className={charninfotitre}>
+                            Gender
+                        </td>
+                        <td className={charninfo}>
+                            {character.gender}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td className={charninfotitre}>
+                            Species
+                        </td>
+                        <td className={charninfo}>
+                            {character.species}
+                        </td>
+                    </tr>
+                    <tr>
+                    <td className={charninfotitre}>
                         Status
-                    </div>
-                    <div className={charninfo}>
+                    </td>
+                    <td className={charninfo}>
                         {character.status}
-                    </div>
-                </div>
-                <div className={info}>
-                    <div className={charninfotitre}>
-                        Origin
-                    </div>
-                    <div className={charninfo}>
-                        {character.origin.name}
-                    </div>
-                </div>
-                <div className={info}>
-                    <div className={charninfotitre}>
-                        location
-                    </div>
-                    <div className={charninfo}>
+                    </td>
+                    </tr>
+                    <tr>
+                        <td className={charninfotitre}>
+                            Origin
+                        </td>
+                        <td className={charninfo}>
+                            {character.origin.name}
+                        </td>
+                    </tr>
+                    <tr>
+                    <td className={charninfotitre}>
+                        Location
+                    </td>
+                    <td className={charninfo}>
                         {character.location.name}
-                    </div>
-                </div>
+                    </td>
+                    </tr>
+                </table>
             </div>
         </Layout>
     )

@@ -3,8 +3,12 @@ import React, { useState, useEffect } from "react"
 import { Link, graphql } from "gatsby"
 import Characters from "../components/character"
 import {
-    containercharacter
-} from './pageTemplate.module.css'
+    containercharacter,
+    tilte,
+    containerpagination,
+    pagination__selected,
+    pagination__pgnumber,
+} from '../scss/pageTemplate.module.scss'
 
 const PageTemplate = ({ data, pageContext }) => {
 
@@ -39,27 +43,21 @@ const PageTemplate = ({ data, pageContext }) => {
         //print card character, create pagination
         <Layout>
             <div>
-                <div>
-                    
-                </div>
-
                 <div className={containercharacter}> 
+                    <h1 className={tilte}>Character List</h1>
                     <Characters characters={characters} />
+                    <br></br><br></br><br></br>
                 </div>
                
                 {loading ? (
                     ""
                 ) : characters.length > 0 ? (
-                    <div>
+                    <div className={containerpagination}>
                         {[...Array(totalpage)].map((_, pageNo) => (
                             <Link
                                 to={`/page/${pageNo + 1}`}
                                 key={pageNo}
-                                className={
-                                    pageNo + 1 === currentPage && characters.length > 0
-                                        ? "pagination__pgnumber pagination__selected"
-                                        : "pagination__pgnumber"
-                                }
+                                className={pagination__pgnumber}
                                 onClick={e => {
                                     if (searchText !== "" && searchMode) {
                                         e.preventDefault()

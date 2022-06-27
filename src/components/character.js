@@ -1,6 +1,14 @@
 //character card pageTemplate
 import React from "react"
-import { Link } from "gatsby"
+import {Link, graphql} from 'gatsby'
+import {
+    card,
+    cardimage,
+    cardinfo,
+    tiltename,
+    charninfotitre,
+    charninfo,
+} from '../scss/pageTemplate.module.scss'
 
 //all character card
 const Characters = ({ characters }) => {
@@ -24,19 +32,43 @@ const Characters = ({ characters }) => {
 //info
 const Profile = ({ character }) => {
     return (
-        <Link to={`/character/${character.id}`}>
+        <div className={card}>
             <div>
-                <div>
-                    <img src={character.image} alt="" />
-                </div>
-                <div>
-                    <div>{character.name}</div>
-                    <div>Species : {character.species}</div>
-                    <div>Origin : {character.origin.name}</div>
-                    <div>Gender : {character.gender}</div>
-                </div>
+                <img className={cardimage} src={character.image} alt="" />
             </div>
-        </Link>
+            <Link 
+                className={tiltename}
+                to={`/character/${character.id}`}
+            >
+                <h1>{character.name}</h1>
+            </Link>
+                <table className={cardinfo}>
+                    <tr>
+                        <td className={charninfotitre}>
+                            Gender
+                        </td>
+                        <td className={charninfo}>
+                            {character.gender}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td className={charninfotitre}>
+                            Species
+                        </td>
+                        <td className={charninfo}>
+                            {character.species}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td className={charninfotitre}>
+                            Status
+                        </td>
+                        <td className={charninfo}>
+                            {character.status}
+                        </td>
+                    </tr>
+                </table>
+        </div>
     )
 }
 
