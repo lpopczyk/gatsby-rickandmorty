@@ -4,8 +4,9 @@ import {Link, graphql} from 'gatsby'
 import {
     card,
     cardimage,
+    charname,
     cardinfo,
-    tiltename,
+    more,
     charninfotitre,
     charninfo,
 } from '../scss/pageTemplate.module.scss'
@@ -36,12 +37,8 @@ const Profile = ({ character }) => {
             <div>
                 <img className={cardimage} src={character.image} alt="" />
             </div>
-            <Link 
-                className={tiltename}
-                to={`/character/${character.id}`}
-            >
-                <h1>{character.name}</h1>
-            </Link>
+            
+            <h1 className={charname}>{character.name}</h1>
                 <table className={cardinfo}>
                     <tr>
                         <td className={charninfotitre}>
@@ -68,6 +65,10 @@ const Profile = ({ character }) => {
                         </td>
                     </tr>
                 </table>
+                <Link 
+                className={more}
+                to={`/character/${character.id}`}
+            >→</Link>
         </div>
     )
 }

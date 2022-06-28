@@ -1,29 +1,36 @@
-import React, { useState } from "react"
-import { graphql } from "gatsby"
+import React, { useState, useEffect } from "react"
+import { graphql, Link } from "gatsby"
 import Layout from "../components/Layout"
 import {
-    tilte,
+    tiltepage,
     searchContainer,
     searchBar,
-    card,
     resultcontainer,
+    card,
     infochar,
+    cardimage,
+    charname,
+    cardinfo,
+    more,
+    charninfotitre,
+    charninfo,
 } from '../scss/searchCharacter.module.scss'
 
-const CharacterIndex = props => {
-    const { data } = props
-    const allCharacters = data.ram.characters.results
+const CharacterIndex = ({ data }) => {
+    
+    const [allcharacters] = useState(
+        data.ram.characters.results
+    )
 
-    const emptyQuery = ""
+    const [searchText] = useState('')
 
     const [state, setState] = useState({
         filteredData: [],
-        query: emptyQuery,
+        query: [searchText],
     })
 
     const handleInputChange = event => {
         const query = event.target.value
-        const { data } = props
 
         const characters = data.ram.characters.results || []
 
@@ -41,63 +48,81 @@ const CharacterIndex = props => {
     }
 
     const { filteredData, query } = state
-    const hasSearchResults = filteredData && query !== emptyQuery
-    const characters = hasSearchResults ? filteredData : allCharacters
+    const hasSearchResults = filteredData && query !== [searchText]
+    const characters = hasSearchResults ? filteredData : [allcharacters]
 
     return (
         <Layout>
-            <h1 classname={tilte}>Search a character</h1>
-            <div className={searchContainer}>
-                <input
-                    className={searchBar}
-                    type="text"
-                    placeholder="Search"
-                    onChange={handleInputChange}
-                />
+            <div className={resultcontainer}>
+                <h1 className={tiltepage}>Search a character</h1>
+                <div className={searchContainer}>
+                    <input
+                        className={searchBar}
+                        type="text"
+                        placeholder="Search"
+                        onChange={handleInputChange}
+                    />
+                    </div>
             </div>
-           
             <div className={resultcontainer}>
             {characters.map(({id, image, name, gender, species}) => {
                return <span key={id}>
                     <div className={card}>
-                        <img src={image} alt={name}></img>
-                        <div>{name}</div>
-                        <table className={infochar}>
+                        <div>
+                            <img className={cardimage} src={image} alt="" />
+                        </div>
+                        <h1 className={charname}>{name}</h1>
+                        <table className={cardinfo}>
                             <tr>
-                                <td>Gender</td>
-                                <td>{gender}</td>
+                                <td className={charninfotitre}>
+                                    Gender
+                                </td>
+                                <td className={charninfo}>
+                                    {gender}
+                                </td>
                             </tr>
                             <tr>
-                                <td>Species</td>
-                                <td>{gender}</td>
-                            </tr>
-                            <tr>
-                                <td>Origin :</td>
-                                <td>{name}</td>
+                                <td className={charninfotitre}>
+                                    Species
+                                </td>
+                                <td className={charninfo}>
+                                    {species}
+                                </td>
                             </tr>
                         </table>
+                        <Link 
+                        className={more}
+                        to={`/character/${id}`}
+                    >→</Link>
                     </div>
                 </span>   
             })}
-            </div>   
+            </div>        
         </Layout>
     )
 }
 
 export default CharacterIndex
 
-export const pageQuery = graphql`
-  query {
-        ram {
-          characters {
-            results {
-              name
-              gender
-              id
-              image
-              species
-            }
+export const query = graphql`
+query{
+    ram {
+      characters(page: 40 ) {
+        results {
+          image
+          name
+          id
+          gender
+          species
+          status
+          location {
+            name
           }
         }
+        info {
+            pages
+          }
       }
+    }
+  }
 `

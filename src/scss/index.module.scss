@@ -4,17 +4,32 @@ $fontcolor2: white;
 $fontcolor3: rgba(87, 73, 95, 0.963);
 
 body{
+
+    
+    .gatsbyimg{
+        width: 10%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 40px;
+    }
+    
     .container {
         margin: 0 auto;
-        width: 550px;
+        margin-top: 60px;
+        width: 436px;
+        height: 200px;
         padding: 8%;
         font-family: $font;
+        border: 2px solid;
+        border-color: $fontcolor1;
         border-radius: 20px;
 
         .tilte{
             color: $fontcolor1;
             font-family: $font;
             text-align: center;
+            margin-top:1px;
             .tilteSpan{
                 color: $fontcolor3;
                 font-weight: normal;

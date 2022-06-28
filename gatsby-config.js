@@ -9,6 +9,7 @@ module.exports = {
         `gatsby-plugin-image`,
         `gatsby-plugin-sharp`,
         `gatsby-plugin-sass`,
+        `gatsby-transformer-sharp`,
         {
             resolve: "gatsby-source-graphql",
             options: {

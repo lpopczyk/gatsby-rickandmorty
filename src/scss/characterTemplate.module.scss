@@ -6,7 +6,8 @@ $backcolor2: rgba(87, 73, 95, 0.963);
 
 .btnback{
     position: absolute;
-    margin-left: 200px;
+    margin-top: 10px;
+    margin-left: 350px;
     color: $fontcolor2;
     text-decoration: none;
     background-color: $fontcolor1;
@@ -18,7 +19,7 @@ $backcolor2: rgba(87, 73, 95, 0.963);
 
 .container {
     margin: 0 auto;
-    margin-top: 20px;
+    margin-top: 60px;
     width: 450px;
     font-family: $font;
     text-align: center;

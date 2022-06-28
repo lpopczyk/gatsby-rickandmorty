@@ -6,7 +6,6 @@ import {
     containercharacter,
     tilte,
     containerpagination,
-    pagination__selected,
     pagination__pgnumber,
 } from '../scss/pageTemplate.module.scss'
 
@@ -19,7 +18,7 @@ const PageTemplate = ({ data, pageContext }) => {
         data.ram.characters.info.pages
     )
 
-    const [searchText, setsearchText] = useState('')
+    const [searchText] = useState('')
 
     const [currentPage, setCurrentPage] = useState(pageContext.page)
     const [loading, setLoading] = useState(false)

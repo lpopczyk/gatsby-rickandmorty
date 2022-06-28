@@ -3,7 +3,7 @@ import { Link } from 'gatsby'
 import {
     navbar,
     navbarelement,
-} from '../scss/layout.scss'
+  } from '../scss/layout.module.scss'
 
 const Layout = ({ children }) => {
     return (
@@ -27,7 +27,7 @@ const Layout = ({ children }) => {
             <Link 
             className={navbarelement}
             to="/searchCharacter">
-                Search a character
+                Search
             </Link>
         </nav>
 
