@@ -106,8 +106,8 @@ export default CharacterIndex
 
 export const query = graphql`
 query{
-    ram {
-      characters(page: 40 ) {
+    ram{
+      characters(page: 10) {
         results {
           image
           name
