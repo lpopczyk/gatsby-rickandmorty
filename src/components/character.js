@@ -11,7 +11,7 @@ import {
     charninfo,
 } from '../scss/pageTemplate.module.scss'
 
-//all character card
+//liste les profils
 const Characters = ({ characters }) => {
     return (
         <>
@@ -30,7 +30,7 @@ const Characters = ({ characters }) => {
     )
 }
 
-//info
+//carte profil d'un character dans la liste 
 const Profile = ({ character }) => {
     return (
         <div className={card}>
@@ -38,8 +38,12 @@ const Profile = ({ character }) => {
                 <img className={cardimage} src={character.image} alt="" />
             </div>
             
-            <h1 className={charname}>{character.name}</h1>
                 <table className={cardinfo}>
+                    <tr>
+                        <td className={charninfotitre}>
+                            <h1 className={charname}>{character.name}</h1>
+                        </td>
+                    </tr>
                     <tr>
                         <td className={charninfotitre}>
                             Gender
