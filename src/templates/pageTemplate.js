@@ -9,7 +9,7 @@ import {
     pagination__pgnumber,
 } from '../scss/pageTemplate.module.scss'
 
-const PageTemplate = ({ data, pageContext }) => {
+const PageTemplate = ({ data }) => {
 
     //total characters
     const [characters] = useState(
