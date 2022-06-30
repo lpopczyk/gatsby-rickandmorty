@@ -7,7 +7,7 @@
   gatsby-rickandmortyapi 
 </h1>
 <p align="center">
-  gatsby site using <a href="[https://www.gatsbyjs.com/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter](https://rickandmortyapi.com/)">
+  gatsby site using <a href="https://rickandmortyapi.com/">
     rickandmortyapi
   </a>
 </p>
