@@ -124,20 +124,23 @@ const CharacterIndex = ({ data }) => {
 export default CharacterIndex
 
 export const query = graphql`
-  query ($page: Int!) {
-    ram {
-      characters(page: $page) {
-        info {
-          pages
-        }
+query{
+    ram{
+      characters(page: 10) {
         results {
-          id
-          name
-          gender
           image
+          name
+          id
+          gender
           species
-          status  
+          status
+          location {
+            name
+          }
         }
+        info {
+            pages
+          }
       }
     }
   }
