@@ -20,33 +20,35 @@ import {
 } from '../scss/pageTemplate.module.scss'
 
 const CharacterIndex = ({ data }) => {
-    
+    //total characters
     const [allcharacters] = useState(
         data.ram.characters.results
     )
+    //total page
     const [totalpage] = useState(
         data.ram.characters.info.pages
     )
-
+    //texte recherché
     const [searchText] = useState('')
 
     const [state, setState] = useState({
         filteredData: [],
         query: [searchText],
     })
-
+    
+    //filtre les données
     const handleInputChange = event => {
+        //valeur de l'élément ayant déclenché la fonction
         const query = event.target.value
-
         const characters = data.ram.characters.results || []
-
+        //filtre les données
         const filteredData = characters.filter(data => {
             const { name } = data
             return (
                 name.toLowerCase().includes(query.toLowerCase())
             )
         })
-
+        //met à jour l'état avec la nouvelle liste de personnage filtrée
         setState({
             query,
             filteredData,
@@ -71,9 +73,9 @@ const CharacterIndex = ({ data }) => {
                     </div>
             </div>
             <div className={resultcontainer}>
-            {characters.map(({id, image, name, gender, species}) => {
+            {characters.map(({id, name, image, gender, species}) => {
                return <span key={id}>
-                    <div className={card}>
+                            <div className={card}>
                         <div>
                             <img className={cardimage} src={image} alt="" />
                         </div>
@@ -101,7 +103,8 @@ const CharacterIndex = ({ data }) => {
                         to={`/character/${id}`}
                     >→</Link>
                     </div>
-                </span>   
+
+                        </span>
             })}
             </div>  
             <div className={containerpagination}>

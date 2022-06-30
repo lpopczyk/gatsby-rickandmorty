@@ -1,5 +1,3 @@
-require("dotenv").config() //lis la configuration depuis .env
-
 module.exports = {
     siteMetadata: {
         title: `gatsby_api`,

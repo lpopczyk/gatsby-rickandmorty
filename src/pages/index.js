@@ -24,13 +24,6 @@ const Home = () => {
                             List
                     </Link>
                 </div>
-                <div className={btnindex}>
-                <Link 
-                    className={lienindex} 
-                    to="/searchCharacter">
-                        Search
-                </Link>
-                </div>
             </div>
             <StaticImage className={gatsbyimg} src="../static/gatsbylogo.png" alt="gatsby logo" />
         </Layout>

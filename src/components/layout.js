@@ -24,11 +24,6 @@ const Layout = ({ children }) => {
             to="/page/1">
                 Character list
             </Link>
-            <Link 
-            className={navbarelement}
-            to="/searchCharacter">
-                Search
-            </Link>
         </nav>
 
             <main>
